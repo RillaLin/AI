@@ -1,0 +1,19 @@
+# Jieba2  設定繁體中文詞庫
+#encoding=utf-8
+import jieba
+
+# 設定繁體中文詞庫
+jieba.set_dictionary('C:/Users/user/Pythonwork/dict/dict.txt.big.txt')  
+
+sentence = "我來到台中教育大學就讀碩士"
+# 預設模式斷詞
+breakword = jieba.cut(sentence, cut_all=False)
+print("預設模式:" + '|' . join(breakword))
+
+# 全文模式斷詞
+breakword = jieba.cut(sentence, cut_all=True)
+print("全文模式:" + '|' . join(breakword))
+
+# 搜尋引擎模式斷詞
+breakword = jieba.cut_for_search(sentence)
+print("搜尋引擎:" + '|' . join(breakword))
