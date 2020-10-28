@@ -1,0 +1,24 @@
+# Jieba3 增加自定義的詞
+#encoding=utf-8
+import jieba
+
+# 設定繁體中文詞庫
+jieba.set_dictionary('dictionary/dict.txt.big.txt')  
+
+sentence = "吳智鴻來到台中教育大學數位系就讀碩士"
+
+#jieba.add_word('數位系')
+#jieba.add_word('凱特琳')
+#jieba.del_word('自定义词')
+
+# 預設模式斷詞
+breakword = jieba.cut(sentence, cut_all=False)
+print("預設模式:" + '|' . join(breakword))
+
+# 全文模式斷詞
+breakword = jieba.cut(sentence, cut_all=True)
+print("全文模式:" + '|' . join(breakword))
+
+# 搜尋引擎模式斷詞
+breakword = jieba.cut_for_search(sentence)
+print("搜尋引擎:" + '|' . join(breakword))
