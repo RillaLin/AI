@@ -1,11 +1,13 @@
 # WordCloud1  文字雲
 
-from PIL import Image
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
-import jieba
-import numpy as np
+from PIL import Image             #PIL(Pillow) 是 Python 中著名的影像處理套件
+import matplotlib.pyplot as plt   #Matplotlib資料視覺化套件
+from wordcloud import WordCloud   #使用Python的wordcloud擴充套件包製作詞雲
+import jieba         
+import numpy as np   #Numpy 可以產生一維、二維陣列進行向量（vector）和矩陣（matrix）運算，其在大量運算時有非常優異的效能。
 from collections import Counter
+#Python的collection模組裡面其實包含了許多非常實用的資料結構，比如之前介紹過的 namedtuple。今天要談的是Counter，Counter是一個dict的子類別，用來對hashable的物件作計算。
+
 
 text = open('dictionary/lunyu.txt', "r",encoding="utf-8").read()  #讀文字資料
  
@@ -25,7 +27,7 @@ diction = Counter(terms)
 font = "dictionary/MSJH.ttf"  #設定字型(宋體)
 #wordcloud = WordCloud(font_path="C:\\Windows\\Fonts\\simsun.ttc")
 
-mask = np.array(Image.open("dictionary/heart.png"))  #設定文字雲形狀 
+mask = np.array(Image.open("dictionary/pumpkin.png"))  #設定文字雲形狀 
 #wordcloud = WordCloud(font_path=font) 
 wordcloud = WordCloud(background_color="white",mask=mask, font_path=font)  #背景顏色預設黑色,改為白色,字體為宋體
 wordcloud.generate_from_frequencies(diction)  #產生文字雲
