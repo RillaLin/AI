@@ -1,0 +1,8 @@
+import cv2
+cv2.__version__
+
+#跳出照片
+img=cv2.imread('star1.png')
+cv2.imshow('My girlfriend',img)
+cv2.waitKey(0)           #如果設置waitKey(0),則表示程序會無限制的等待用戶的按鍵事件
+cv2.destroyAllWindows()  #有按鍵事件才會關閉
